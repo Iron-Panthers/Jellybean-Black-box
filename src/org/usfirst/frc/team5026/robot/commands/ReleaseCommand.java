@@ -1,8 +1,7 @@
 package org.usfirst.frc.team5026.robot.commands;
 
-import org.usfirst.frc.team5026.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team5026.robot.Robot;
 
 /**
  *
@@ -11,8 +10,8 @@ public class ReleaseCommand extends Command {
 	public double releaseTime;
 	public double timeReleased;
     public ReleaseCommand() {
-    	requires(Robot.sort);
-    	releaseTime = 100;
+//    	requires(Robot.sort);
+    	releaseTime = 100; //1 second
     	timeReleased = 0;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -24,6 +23,7 @@ public class ReleaseCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.sort.releaseBean();
     	timeReleased++;
     	if (timeReleased>=releaseTime) {
     		end();

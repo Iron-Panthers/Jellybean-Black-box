@@ -1,13 +1,19 @@
 package org.usfirst.frc.team5026.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team5026.robot.Constants;
+import org.usfirst.frc.team5026.robot.Robot;
+
+import edu.wpi.first.wpilibj.command.TimedCommand;
 
 /**
  *
  */
-public class ResetRelease extends Command {
-
-    public ResetRelease() {
+public class ResetRelease extends TimedCommand {
+	public double timeout;
+    public ResetRelease(double timeout) {
+    	super(timeout);
+    	this.timeout = timeout;
+//    	requires(Robot.sort);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -18,14 +24,15 @@ public class ResetRelease extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.sort.resetRelease();
+    	timeout+=0.01;
+    	if (timeout>=100) {
+    		end();
+    	}
+    	super.setTimeout(timeout);
     }
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return false;
-    }
-
-    // Called once after isFinished returns true
+    // Called once after timeout
     protected void end() {
     }
 

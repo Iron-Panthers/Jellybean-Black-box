@@ -13,13 +13,16 @@ public class Sort {
 		bottomServo = Robot.hardware.bottomServo;
 	}
 	public void releaseBean() {
-		topServo.set(Constants.sortPower);
+		topServo.set(Constants.SORT_POWER);
+	}
+	public void resetRelease() {
+		topServo.set(-Constants.SORT_POWER);
 	}
 	public void sortLeft() {
-		bottomServo.set(-Constants.sortPower);
+		bottomServo.set(-Constants.SORT_POWER);
 	}
 	public void sortRight() {
-		bottomServo.set(Constants.sortPower);
+		bottomServo.set(Constants.SORT_POWER);
 	}
 	public void stopTop() {
 		topServo.set(0);

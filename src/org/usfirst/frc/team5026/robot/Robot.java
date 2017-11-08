@@ -1,7 +1,6 @@
 
 package org.usfirst.frc.team5026.robot;
 
-import org.usfirst.frc.team5026.robot.commands.ExampleCommand;
 import org.usfirst.frc.team5026.robot.subsystems.Sort;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -36,7 +35,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		hardware = new Hardware();
 		sort = new Sort();
-		chooser.addDefault("Default Auto", new ExampleCommand());
+//		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 	}
