@@ -1,20 +1,16 @@
 package org.usfirst.frc.team5026.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-
-import org.usfirst.frc.team5026.robot.Constants;
 import org.usfirst.frc.team5026.robot.Robot;
+
+import edu.wpi.first.wpilibj.command.TimedCommand;
 
 /**
  *
  */
-public class ReleaseCommand extends Command {
-	public double releaseTime;
-	public double timeReleased;
-    public ReleaseCommand() {
+public class ReleaseCommand extends TimedCommand {
+    public ReleaseCommand(double timeout) {
 //    	requires(Robot.sort);
-    	releaseTime = Constants.SORT_TIME; //1 second
-    	timeReleased = 0;
+    	super(timeout);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -26,10 +22,6 @@ public class ReleaseCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.sort.releaseBean();
-    	timeReleased+=0.01;
-    	if (timeReleased>=releaseTime) {
-    		end();
-    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
