@@ -1,11 +1,17 @@
 package org.usfirst.frc.team5026.robot;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.Spark;
 
 public class Hardware {
+	//Release Servo
 	public Spark topServo;
+	public Encoder topServoEncoder;
+	
+	//Sort Servo
 	public Spark bottomServo;
+	public Encoder bottomServoEncoder;
 	
 	//Color sensor?
 	public I2C colorSensor;
@@ -14,10 +20,16 @@ public class Hardware {
 	public boolean topServoInverted = false;
 	public boolean bottomServoInverted = false;
 	public Hardware() {
+		//Release Servo
 		topServo = new Spark(RobotMap.TOP_SERVO_PORT);
 		topServo.setInverted(topServoInverted);
+		topServoEncoder = new Encoder(RobotMap.TOP_SERVO_ENCODER_PORT1,RobotMap.TOP_SERVO_ENCODER_PORT2,Constants.TOP_SERVO_ENCODER_IS_REVERSE);
+		
+		//Sort Servo
 		bottomServo = new Spark(RobotMap.BOTTOM_SERVO_PORT);
 		bottomServo.setInverted(bottomServoInverted);
+		bottomServoEncoder = new Encoder(RobotMap.BOTTOM_SERVO_ENCODER_PORT1,RobotMap.BOTTOM_SERVO_ENCODER_PORT2,Constants.BOTTOM_SERVO_ENCODER_IS_REVERSE);
+
 //		colorSensor = new I2C();
 	}
 }
