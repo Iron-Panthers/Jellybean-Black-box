@@ -8,12 +8,12 @@ package org.usfirst.frc.team5026.robot;
  */
 public class RobotMap {
 	//Relese Servo
-	public static final int TOP_SERVO_PORT = 0;
+	public static final int TOP_SERVO_PORT = 9;
 	public static final int TOP_SERVO_ENCODER_PORT1 = 0;
 	public static final int TOP_SERVO_ENCODER_PORT2 = 1;
 	
 	//Sort Servo
-	public static final int BOTTOM_SERVO_PORT = 1;
+	public static final int BOTTOM_SERVO_PORT = 4;
 	public static final int BOTTOM_SERVO_ENCODER_PORT1 = 0;
 	public static final int BOTTOM_SERVO_ENCODER_PORT2 = 1;
 	

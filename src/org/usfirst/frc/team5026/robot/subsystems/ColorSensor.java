@@ -13,7 +13,7 @@ public class ColorSensor extends Subsystem {
 	}
 	public int getColor() {
 		//Returns color of jelly bean
-		return (Integer) null;
+		return 0;
 	}
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

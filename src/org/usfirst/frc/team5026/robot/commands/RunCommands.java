@@ -12,18 +12,19 @@ public class RunCommands extends CommandGroup {
 
     public RunCommands() {
 //    	addSequential(new SenseColor);
+    	System.out.println("Running commands");
     	int color = Robot.colorSensor.getColor();
     	if (color==0 || color ==16) {
-    		addSequential(new SortLeftCommand(Constants.SORT_TIME));
-    		addSequential(new ReleaseCommand(Constants.RELEASE_TIME));
-    		addSequential(new ResetSortLeftCommand(Constants.SORT_TIME));
+    		addSequential(new SortLeftCommand());
+    		addSequential(new ReleaseCommand());
+    		addSequential(new ResetSortCommand());
     	}
     	else {
-    		addSequential(new SortRightCommand(Constants.SORT_TIME));
-    		addSequential(new ReleaseCommand(Constants.RELEASE_TIME));
-    		addSequential(new ResetSortRightCommand(Constants.SORT_TIME));
+    		addSequential(new SortRightCommand());
+    		addSequential(new ReleaseCommand());
+    		addSequential(new ResetSortCommand());
     	}
-    	addSequential(new ResetRelease(Constants.RELEASE_TIME));
+    	addSequential(new ResetRelease());
     	
     	
     	

@@ -2,9 +2,16 @@ package org.usfirst.frc.team5026.robot;
 
 public class Constants {
 	//Sort Subsystem Things
+	//Sort
 	public static final double SORT_POWER = 0.2;
-	public static final double SORT_TIME = 0.0001; //In seconds
-	public static final double RELEASE_TIME = 0.0001; //In seconds
+	public static final double SORT_TIME = 0.00000001; //In seconds
+	public static final double SORT_ANGLE = 10;
+	public static final double SORT_DEFAULT_ANGLE = 20;
+	//Release
+	public static final double RELEASE_TIME = 0.00000001; //In seconds
+	public static final double RELEASE_ANGLE = 10;
+	public static final double RELEASE_DEFAULT_ANGLE = 30; //May not use, can just move back servo
+	
 	
 	//Encoder Things
 	//Top Encoder

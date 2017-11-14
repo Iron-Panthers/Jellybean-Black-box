@@ -4,49 +4,42 @@ import org.usfirst.frc.team5026.robot.Constants;
 import org.usfirst.frc.team5026.robot.Robot;
 
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.Servo;
 
 public class Sort {
 	//Release Servo
-	public Spark topServo;
-	public Encoder topServoEncoder;
+	public Servo topServo;
+//	public Encoder topServoEncoder;
 	
 	//Sort Servo
-	public Spark bottomServo;
-	public Encoder bottomServoEncoder;
+	public Servo bottomServo;
+//	public Encoder bottomServoEncoder;
 	
 	public Sort() {
 		//Release Servo
 		topServo = Robot.hardware.topServo;
-		topServoEncoder = Robot.hardware.topServoEncoder;
+//		topServoEncoder = Robot.hardware.topServoEncoder;
 		
-		//Sort Servo
+//		//Sort Servo
 		bottomServo = Robot.hardware.bottomServo;
-		bottomServoEncoder = Robot.hardware.bottomServoEncoder;
-		
-		//Encoder Commands
-		topServoEncoder.setMaxPeriod(Constants.TOP_SERVO_ENCODER_MAX_PERIOD);
+//		bottomServoEncoder = Robot.hardware.bottomServoEncoder;
+//		
+//		//Encoder Commands
+//		topServoEncoder.setMaxPeriod(Constants.TOP_SERVO_ENCODER_MAX_PERIOD);
 	}
 	public void releaseBean() {
-		topServo.set(Constants.SORT_POWER);
+		topServo.setAngle(Constants.RELEASE_ANGLE);
 	}
 	public void resetRelease() {
-		topServo.set(-Constants.SORT_POWER);
+		topServo.setAngle(topServo.getAngle()-Constants.RELEASE_ANGLE);
 	}
 	public void sortLeft() {
-		bottomServo.set(-Constants.SORT_POWER);
+		bottomServo.setAngle(-Constants.SORT_ANGLE);
 	}
 	public void sortRight() {
-		bottomServo.set(Constants.SORT_POWER);
+		bottomServo.setAngle(Constants.SORT_ANGLE);
 	}
-	public void stopTop() {
-		topServo.set(0);
-	}
-	public void stopBottom() {
-		topServo.set(0);
-	}
-	public void stopAll() {
-		stopTop();
-		stopBottom();
+	public void resetSort() {
+		bottomServo.setAngle(Constants.SORT_DEFAULT_ANGLE);
 	}
 }
