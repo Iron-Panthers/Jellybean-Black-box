@@ -22,6 +22,13 @@ public class Constants {
 	//Actual value
 	public static final double RELEASE_DEFAULT_POS = 0.25;
 	
+	//Color Sensor Things
+	public static final int RGB_MAX_WHITE = 255;
+	public static final int RGB_MIN_WHITE = 200;
+	public static final int RGB_MAX_BLACK = 55;
+	public static final int RGB_MIN_BLACK = 0;
+	
+	
 	
 	//Encoder Things
 	//Top Encoder

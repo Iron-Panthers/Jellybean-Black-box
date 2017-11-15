@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team5026.robot;
 
+import org.usfirst.frc.team5026.robot.commands.RunCommands;
 import org.usfirst.frc.team5026.robot.subsystems.ColorSensor;
 import org.usfirst.frc.team5026.robot.subsystems.Sort;
 
@@ -24,6 +25,8 @@ public class Robot extends IterativeRobot {
 	public static Hardware hardware;
 	public static Sort sort;
 	public static ColorSensor colorSensor;
+	
+	public static int[] defaultRGB;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -96,6 +99,7 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void teleopInit() {
+		defaultRGB = colorSensor.getColorRGB();
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -109,6 +113,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
+		if(colorSensor.getColorRGB()!=defaultRGB) {
+			RunCommands run = new RunCommands();
+		}
 		Scheduler.getInstance().run();
 	}
 

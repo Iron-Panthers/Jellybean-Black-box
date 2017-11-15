@@ -13,12 +13,14 @@ public class RunCommands extends CommandGroup {
 //    	addSequential(new SenseColor);
     	System.out.println("Running commands");
     	int color = Robot.colorSensor.getColor();
+    	System.out.println(color); //For bugfixing
+    	//0 is white, 16 is black
     	if (color==0 || color ==16) {
     		addSequential(new SortLeftCommand());
     		addSequential(new ReleaseCommand());
     		addSequential(new ResetSortCommand());
     	}
-    	else {
+    	else { //Color would be 8 if it is not white or black
     		addSequential(new SortRightCommand());
     		addSequential(new ReleaseCommand());
     		addSequential(new ResetSortCommand());
