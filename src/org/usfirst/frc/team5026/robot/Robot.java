@@ -1,7 +1,6 @@
 
 package org.usfirst.frc.team5026.robot;
 
-import org.usfirst.frc.team5026.robot.commands.RunCommands;
 import org.usfirst.frc.team5026.robot.subsystems.ColorSensor;
 import org.usfirst.frc.team5026.robot.subsystems.Sort;
 
@@ -41,6 +40,11 @@ public class Robot extends IterativeRobot {
 		hardware = new Hardware();
 		sort = new Sort();
 		colorSensor = new ColorSensor();
+		defaultRGB = colorSensor.getColorRGB();
+		System.out.println(defaultRGB[0]);
+		//Add when color sensor is added
+//		defaultRGB = colorSensor.getColorRGB();
+		
 //		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
@@ -99,7 +103,6 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void teleopInit() {
-		defaultRGB = colorSensor.getColorRGB();
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -113,9 +116,10 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		if(colorSensor.getColorRGB()!=defaultRGB) {
-			RunCommands run = new RunCommands();
-		}
+//		if(colorSensor.getColorRGB()!=defaultRGB) {
+//			RunCommands run = new RunCommands();
+//			run.start();
+//		}
 		Scheduler.getInstance().run();
 	}
 

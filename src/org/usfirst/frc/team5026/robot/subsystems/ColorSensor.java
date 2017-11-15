@@ -49,21 +49,25 @@ public class ColorSensor extends Subsystem {
 		//Test for white
 		//If R, G, and B values to decimal
 		if (isRGBInRange(isInWhiteRange(rgb[0]),isInWhiteRange(rgb[1]),isInWhiteRange(rgb[2]))) {
+			//White
 			return 0;
 		}
 		else if (isRGBInRange(isInBlackRange(rgb[0]),isInBlackRange(rgb[1]),isInBlackRange(rgb[2]))) {
+			//Black
 			return 16;
 		}
+		//Other
 		return 8;
 	}
 	public int[] getColorRGB() {
 		int[] rgb = colorSensor.getRGBC();
+		System.out.println(rgb[0]);
 		int[] rgbDecimal = new int[3];
-		for (int i = 0; i<rgb.length; i++) {
-			String hex = ""+rgb[i]+"";
-			//Converts to decimal to add to the int array
-			rgbDecimal[i]= Integer.parseInt(hex,16);
-		}
+//		for (int i = 0; i<rgb.length; i++) {
+//			String hex = ""+rgb[i]+"";
+//			//Converts to decimal to add to the int array
+//			rgbDecimal[i] = Integer.parseInt(hex,16);
+//		}
 		return rgbDecimal;
 	}
     public void initDefaultCommand() {

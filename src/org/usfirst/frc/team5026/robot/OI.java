@@ -1,8 +1,8 @@
 package org.usfirst.frc.team5026.robot;
 
+import org.usfirst.frc.team5026.robot.commands.ColorSort;
 import org.usfirst.frc.team5026.robot.commands.ReleaseCommand;
 import org.usfirst.frc.team5026.robot.commands.ResetRelease;
-import org.usfirst.frc.team5026.robot.commands.RunCommands;
 import org.usfirst.frc.team5026.robot.commands.SortLeftCommand;
 import org.usfirst.frc.team5026.robot.commands.SortRightCommand;
 
@@ -31,7 +31,7 @@ public class OI {
 		stickBtnFive = new JoystickButton(stick, 5);
 	}
 	public void mapButtons() {
-		stickBtnOne.whenPressed(new RunCommands());
+		stickBtnOne.whenPressed(new ColorSort());
 		//For testing
 		stickBtnTwo.whenPressed(new SortLeftCommand());
 		stickBtnThree.whenPressed(new ReleaseCommand());

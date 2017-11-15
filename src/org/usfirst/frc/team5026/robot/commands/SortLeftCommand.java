@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class SortLeftCommand extends Command {
-
     public SortLeftCommand() {
     	requires(Robot.sort);
         // Use requires() here to declare subsystem dependencies
@@ -17,16 +16,17 @@ public class SortLeftCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.sort.sortLeft();	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.sort.sortLeft();
+    
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

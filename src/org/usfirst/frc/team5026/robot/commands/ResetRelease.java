@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class ResetRelease extends Command {
-
     public ResetRelease() {
     	requires(Robot.sort);
         // Use requires() here to declare subsystem dependencies
@@ -17,16 +16,17 @@ public class ResetRelease extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.sort.resetRelease();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.sort.resetRelease();
+    
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
