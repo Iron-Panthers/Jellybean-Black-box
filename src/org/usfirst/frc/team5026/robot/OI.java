@@ -1,7 +1,10 @@
 package org.usfirst.frc.team5026.robot;
 
+import org.usfirst.frc.team5026.robot.commands.ReleaseCommand;
+import org.usfirst.frc.team5026.robot.commands.ResetRelease;
 import org.usfirst.frc.team5026.robot.commands.RunCommands;
 import org.usfirst.frc.team5026.robot.commands.SortLeftCommand;
+import org.usfirst.frc.team5026.robot.commands.SortRightCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -15,12 +18,25 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 	Joystick stick;
 	Button stickBtnOne;
+	Button stickBtnTwo;
+	Button stickBtnThree;
+	Button stickBtnFour;
+	Button stickBtnFive;
 	public OI() {
 		stick = new Joystick(1);
 		stickBtnOne = new JoystickButton(stick, 1);
+		stickBtnTwo = new JoystickButton(stick, 2);
+		stickBtnThree = new JoystickButton(stick, 3);
+		stickBtnFour = new JoystickButton(stick, 4);
+		stickBtnFive = new JoystickButton(stick, 5);
 	}
 	public void mapButtons() {
 		stickBtnOne.whenPressed(new RunCommands());
+		//For testing
+		stickBtnTwo.whenPressed(new SortLeftCommand());
+		stickBtnThree.whenPressed(new ReleaseCommand());
+		stickBtnFour.whenPressed(new ResetRelease());
+		stickBtnFive.whenPressed(new SortRightCommand());
 	}
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a

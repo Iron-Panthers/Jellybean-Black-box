@@ -28,6 +28,8 @@ public class Hardware {
 		
 		//Sort Servo
 		bottomServo = new Servo(RobotMap.BOTTOM_SERVO_PORT);
+		double defaultPos = bottomServo.getPosition();
+		System.out.println(defaultPos+"hi");
 //		bottomServo.setInverted(bottomServoInverted);
 //		bottomServoEncoder = new Encoder(RobotMap.BOTTOM_SERVO_ENCODER_PORT1,RobotMap.BOTTOM_SERVO_ENCODER_PORT2,Constants.BOTTOM_SERVO_ENCODER_IS_REVERSE);
 

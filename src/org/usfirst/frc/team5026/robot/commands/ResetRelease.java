@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ResetRelease extends Command {
 
     public ResetRelease() {
+    	requires(Robot.sort);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }

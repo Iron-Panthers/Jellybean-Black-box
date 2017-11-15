@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class SortLeftCommand extends Command {
 
     public SortLeftCommand() {
+    	requires(Robot.sort);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }

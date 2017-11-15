@@ -5,12 +5,22 @@ public class Constants {
 	//Sort
 	public static final double SORT_POWER = 0.2;
 	public static final double SORT_TIME = 0.00000001; //In seconds
-	public static final double SORT_ANGLE = 10;
-	public static final double SORT_DEFAULT_ANGLE = 20;
+	public static final double SORT_DEFAULT_ANGLE = -90;
+	public static final double SORT_ANGLE = SORT_DEFAULT_ANGLE+10;
+	//Actual values
+	public static final double SORT_DEFAULT_POS = 0.475;
+	public static final double SORT_RIGHT_POS = 0.55;
+	public static final double SORT_LEFT_POS = 0.4;
+	
+	
 	//Release
 	public static final double RELEASE_TIME = 0.00000001; //In seconds
-	public static final double RELEASE_ANGLE = 10;
-	public static final double RELEASE_DEFAULT_ANGLE = 30; //May not use, can just move back servo
+	public static final double RELEASE_ANGLE = 11;
+	//Actual value
+	public static final double RELEASE_POS = 0.1;
+	public static final double RELEASE_DEFAULT_ANGLE = 90; //May not use, can just move back servo
+	//Actual value
+	public static final double RELEASE_DEFAULT_POS = 0.25;
 	
 	
 	//Encoder Things
