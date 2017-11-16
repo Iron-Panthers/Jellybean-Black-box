@@ -1,9 +1,9 @@
 package org.usfirst.frc.team5026.robot;
 
+import org.usfirst.frc.team5026.robot.commands.ColorSort;
 import org.usfirst.frc.team5026.robot.commands.ReleaseWaitCommand;
 import org.usfirst.frc.team5026.robot.commands.ResetRelease;
 import org.usfirst.frc.team5026.robot.commands.SortLeftWaitCommand;
-import org.usfirst.frc.team5026.robot.commands.SortRightCommGroup;
 import org.usfirst.frc.team5026.robot.commands.SortRightWaitCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -31,7 +31,7 @@ public class OI {
 		stickBtnFive = new JoystickButton(stick, 5);
 	}
 	public void mapButtons() {
-		stickBtnOne.whenPressed(new SortRightCommGroup());
+		stickBtnOne.whenPressed(new ColorSort());
 		//For testing
 		stickBtnTwo.whenPressed(new SortLeftWaitCommand(Constants.SORT_TIME));
 		stickBtnThree.whenPressed(new ReleaseWaitCommand(Constants.RELEASE_TIME));
