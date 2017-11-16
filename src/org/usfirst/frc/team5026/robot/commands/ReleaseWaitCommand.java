@@ -2,34 +2,30 @@ package org.usfirst.frc.team5026.robot.commands;
 
 import org.usfirst.frc.team5026.robot.Robot;
 
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.TimedCommand;
 
 /**
  *
  */
-public class SortLeftCommand extends Command {
-    public SortLeftCommand() {
-    	requires(Robot.sort);
+public class ReleaseWaitCommand extends TimedCommand {
+
+    public ReleaseWaitCommand(double timeout) {
+        super(timeout);
+        requires(Robot.sort);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.sort.sortLeft();	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    
+    	Robot.sort.releaseBean();
     }
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return true;
-    }
-
-    // Called once after isFinished returns true
+    // Called once after timeout
     protected void end() {
     }
 

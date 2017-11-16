@@ -4,7 +4,7 @@ public class Constants {
 	//Sort Subsystem Things
 	//Sort
 	public static final double SORT_POWER = 0.2;
-	public static final double SORT_TIME = 0.00000001; //In seconds
+	public static final double SORT_TIME = 0.5; //In seconds
 	public static final double SORT_DEFAULT_ANGLE = -90;
 	public static final double SORT_ANGLE = SORT_DEFAULT_ANGLE+10;
 	//Actual values
@@ -14,7 +14,7 @@ public class Constants {
 	
 	
 	//Release
-	public static final double RELEASE_TIME = 0.00000001; //In seconds
+	public static final double RELEASE_TIME = 1.5; //In seconds
 	public static final double RELEASE_ANGLE = 11;
 	//Actual value
 	public static final double RELEASE_POS = 0.1;

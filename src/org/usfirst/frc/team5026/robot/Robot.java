@@ -1,7 +1,6 @@
 
 package org.usfirst.frc.team5026.robot;
 
-import org.usfirst.frc.team5026.robot.subsystems.ColorSensor;
 import org.usfirst.frc.team5026.robot.subsystems.Sort;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -22,9 +21,7 @@ public class Robot extends IterativeRobot {
 
 	public static OI oi;
 	public static Hardware hardware;
-	public static Sort sort;
-	public static ColorSensor colorSensor;
-	
+	public static Sort sort;	
 	public static int[] defaultRGB;
 
 	Command autonomousCommand;
@@ -39,8 +36,8 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		hardware = new Hardware();
 		sort = new Sort();
-		colorSensor = new ColorSensor();
-		defaultRGB = colorSensor.getColorRGB();
+//		colorSensor = new ColorSensor();
+		defaultRGB = sort.getColorRGB();
 		System.out.println(defaultRGB[0]);
 		//Add when color sensor is added
 //		defaultRGB = colorSensor.getColorRGB();

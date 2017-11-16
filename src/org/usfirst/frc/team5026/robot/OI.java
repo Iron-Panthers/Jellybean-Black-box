@@ -1,10 +1,10 @@
 package org.usfirst.frc.team5026.robot;
 
-import org.usfirst.frc.team5026.robot.commands.ColorSort;
-import org.usfirst.frc.team5026.robot.commands.ReleaseCommand;
+import org.usfirst.frc.team5026.robot.commands.ReleaseWaitCommand;
 import org.usfirst.frc.team5026.robot.commands.ResetRelease;
-import org.usfirst.frc.team5026.robot.commands.SortLeftCommand;
-import org.usfirst.frc.team5026.robot.commands.SortRightCommand;
+import org.usfirst.frc.team5026.robot.commands.SortLeftWaitCommand;
+import org.usfirst.frc.team5026.robot.commands.SortRightCommGroup;
+import org.usfirst.frc.team5026.robot.commands.SortRightWaitCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -31,12 +31,12 @@ public class OI {
 		stickBtnFive = new JoystickButton(stick, 5);
 	}
 	public void mapButtons() {
-		stickBtnOne.whenPressed(new ColorSort());
+		stickBtnOne.whenPressed(new SortRightCommGroup());
 		//For testing
-		stickBtnTwo.whenPressed(new SortLeftCommand());
-		stickBtnThree.whenPressed(new ReleaseCommand());
+		stickBtnTwo.whenPressed(new SortLeftWaitCommand(Constants.SORT_TIME));
+		stickBtnThree.whenPressed(new ReleaseWaitCommand(Constants.RELEASE_TIME));
 		stickBtnFour.whenPressed(new ResetRelease());
-		stickBtnFive.whenPressed(new SortRightCommand());
+		stickBtnFive.whenPressed(new SortRightWaitCommand(Constants.SORT_TIME));
 	}
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
