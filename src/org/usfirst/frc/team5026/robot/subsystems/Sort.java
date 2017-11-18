@@ -49,35 +49,27 @@ public class Sort extends Subsystem{
 		bottomServo.setPosition(Constants.SORT_DEFAULT_POS);
 	}
 	public boolean isInWhiteRange(int test) {
-		int testDecimal = test/255;
+		int testDecimal = test;
 		//65000/256
 //		System.out.print("Hex value: "+test+"Decimal value: ");
-//		System.out.println(testDecimal);
+		System.out.println(testDecimal);
 		if ((testDecimal>=Constants.RGB_MAX_WHITE) && testDecimal<=Constants.RGB_MIN_WHITE) {
 			return true;
 		}
 		return false;
 	}
 	public boolean isInBlackRange(int test) {
-		int testDecimal = test/255;
+		int testDecimal = test;
 		//65000/256
 //		System.out.print("Hex value: "+test+"Decimal value: ");
-//		System.out.println(testDecimal);
+		System.out.println(testDecimal);
 		if ((testDecimal>=Constants.RGB_MIN_BLACK) && testDecimal<=Constants.RGB_MAX_BLACK) {
 			return true;
 		}
 		return false;
 	}
 	public boolean isRGBInRange(boolean r, boolean g, boolean b) {
-		//If all true, return true
-		if (r) {
-			if(g) {
-				if(b) {
-					return true;
-				}
-			}
-		}
-		return false;
+		return r && g && b;
 	}
 	public int getColor() {
 		//Returns color of jelly bean

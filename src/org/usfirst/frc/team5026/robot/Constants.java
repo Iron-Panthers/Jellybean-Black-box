@@ -23,9 +23,9 @@ public class Constants {
 	public static final double RELEASE_DEFAULT_POS = 0.25;
 	
 	//Color Sensor Things
-	public static final int RGB_MAX_WHITE = 254;
-	public static final int RGB_MIN_WHITE = 200;
-	public static final int RGB_MAX_BLACK = 55;
+	public static final int RGB_MAX_WHITE = 65000;
+	public static final int RGB_MIN_WHITE = 15000;
+	public static final int RGB_MAX_BLACK = 1000;
 	public static final int RGB_MIN_BLACK = 0;
 	
 	
