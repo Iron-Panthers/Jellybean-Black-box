@@ -49,16 +49,20 @@ public class Sort extends Subsystem{
 		bottomServo.setPosition(Constants.SORT_DEFAULT_POS);
 	}
 	public boolean isInWhiteRange(int test) {
-		String testString = ""+test+"";
-		int testDecimal = Integer.parseInt(testString,16);
-		if ((testDecimal>=Constants.RGB_MIN_WHITE) && testDecimal<=Constants.RGB_MAX_WHITE) {
+		int testDecimal = test/255;
+		//65000/256
+//		System.out.print("Hex value: "+test+"Decimal value: ");
+//		System.out.println(testDecimal);
+		if ((testDecimal>=Constants.RGB_MAX_WHITE) && testDecimal<=Constants.RGB_MIN_WHITE) {
 			return true;
 		}
 		return false;
 	}
 	public boolean isInBlackRange(int test) {
-		String testString = ""+test+"";
-		int testDecimal = Integer.parseInt(testString,16);
+		int testDecimal = test/255;
+		//65000/256
+//		System.out.print("Hex value: "+test+"Decimal value: ");
+//		System.out.println(testDecimal);
 		if ((testDecimal>=Constants.RGB_MIN_BLACK) && testDecimal<=Constants.RGB_MAX_BLACK) {
 			return true;
 		}
@@ -91,21 +95,30 @@ public class Sort extends Subsystem{
 		//Other
 		return 8;
 	}
+	public void getColorTest() {
+		int[] rgb = colorSensor.getRGBC();
+		//Black, white
+		System.out.println(isRGBInRange(isInWhiteRange(rgb[0]),isInWhiteRange(rgb[1]),isInWhiteRange(rgb[2])));
+		System.out.println(isRGBInRange(isInBlackRange(rgb[0]),isInBlackRange(rgb[1]),isInBlackRange(rgb[2])));
+		System.out.println("Red"+isInWhiteRange(rgb[0]));
+		System.out.println("Green"+isInWhiteRange(rgb[1]));
+		System.out.println("Blue"+isInWhiteRange(rgb[2]));
+	}
 	public int[] getColorRGB() {
 		int[] rgb = colorSensor.getRGBC();
 		System.out.println(rgb[0]);
 		int[] rgbDecimal = new int[3];
-//		for (int i = 0; i<rgb.length; i++) {
-//			String hex = ""+rgb[i]+"";
-//			//Converts to decimal to add to the int array
-//			rgbDecimal[i] = Integer.parseInt(hex,16);
-//		}
-//		return rgbDecimal;
-		int[] test = new int[3];
-		test[0] = 255;
-		test[1] = 255;
-		test[2] = 255;
-		return test;
+		for (int i = 0; i<rgb.length-1; i++) {
+			String hex = ""+rgb[i]+"";
+			//Converts to decimal to add to the int array
+			rgbDecimal[i] = Integer.parseInt(hex,16);
+		}
+		return rgbDecimal;
+//		int[] test = new int[3];
+//		test[0] = 255;
+//		test[1] = 255;
+//		test[2] = 255;
+//		return test;
 	}
 	@Override
 	protected void initDefaultCommand() {
