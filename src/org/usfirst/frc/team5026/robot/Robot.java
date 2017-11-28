@@ -108,18 +108,18 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		time++;
-		if (time%Constants.SORT_FREQUENCY==0) {
-			System.out.println(time);
-//			int color = sort.getColor();
-//			if (color==0 || color==16) {
-//				new SortLeftCommGroup();
-//			}
-//			else {
-			//Run a command for init default that runs color sort with getColor as a param
-				new SortRightCommGroup();
-//			}
-		}
+//		time++;
+//		if (time%Constants.SORT_FREQUENCY==0) {
+//			System.out.println(time);
+////			int color = sort.getColor();
+////			if (color==0 || color==16) {
+////				new SortLeftCommGroup();
+////			}
+////			else {
+//			//Run a command for init default that runs color sort with getColor as a param
+//				new SortRightCommGroup();
+////			}
+//		}
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
 	}
@@ -129,22 +129,22 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		time++;
-		if (time%Constants.SORT_FREQUENCY==0) {
-			System.out.println(time);
-			int color = sort.getColor();
-			if (color==0 || color==16) {
-				new SortLeftCommGroup();
-			}
-			else {
-				new SortRightCommGroup();
-			}
-		}
-		
-//		if(colorSensor.getColorRGB()!=defaultRGB) {
-//			RunCommands run = new RunCommands();
-//			run.start();
+//		time++;
+//		if (time%Constants.SORT_FREQUENCY==0) {
+//			System.out.println(time);
+//			int color = sort.getColor();
+//			if (color==0 || color==16) {
+//				new SortLeftCommGroup();
+//			}
+//			else {
+//				new SortRightCommGroup();
+//			}
 //		}
+//		
+////		if(colorSensor.getColorRGB()!=defaultRGB) {
+////			RunCommands run = new RunCommands();
+////			run.start();
+////		}
 		Scheduler.getInstance().run();
 	}
 
