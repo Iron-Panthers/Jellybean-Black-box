@@ -27,6 +27,7 @@ public class SortLeftWaitCommand extends TimedCommand {
 
     // Called once after timeout
     protected void end() {
+    	System.out.println("Sorting out bad ones");
     }
 
     // Called when another command which requires one or more of the same

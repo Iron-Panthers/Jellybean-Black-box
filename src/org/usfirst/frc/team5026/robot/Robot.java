@@ -1,6 +1,8 @@
 
 package org.usfirst.frc.team5026.robot;
 
+import org.usfirst.frc.team5026.robot.commands.SortLeftCommGroup;
+import org.usfirst.frc.team5026.robot.commands.SortRightCommGroup;
 import org.usfirst.frc.team5026.robot.subsystems.Sort;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -23,6 +25,7 @@ public class Robot extends IterativeRobot {
 	public static Hardware hardware;
 	public static Sort sort;	
 	public static int[] defaultRGB;
+	public static int time;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -33,11 +36,12 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		time = 999;
 		oi = new OI();
 		hardware = new Hardware();
 		sort = new Sort();
 //		colorSensor = new ColorSensor();
-		defaultRGB = sort.getColorRGB();
+		defaultRGB = hardware.colorSensor.getRGBC();
 		System.out.println(defaultRGB[0]);
 		//Add when color sensor is added
 //		defaultRGB = colorSensor.getColorRGB();
@@ -104,6 +108,18 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
+		time++;
+		if (time%Constants.SORT_FREQUENCY==0) {
+			System.out.println(time);
+//			int color = sort.getColor();
+//			if (color==0 || color==16) {
+//				new SortLeftCommGroup();
+//			}
+//			else {
+			//Run a command for init default that runs color sort with getColor as a param
+				new SortRightCommGroup();
+//			}
+		}
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
 	}
@@ -113,6 +129,18 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
+		time++;
+		if (time%Constants.SORT_FREQUENCY==0) {
+			System.out.println(time);
+			int color = sort.getColor();
+			if (color==0 || color==16) {
+				new SortLeftCommGroup();
+			}
+			else {
+				new SortRightCommGroup();
+			}
+		}
+		
 //		if(colorSensor.getColorRGB()!=defaultRGB) {
 //			RunCommands run = new RunCommands();
 //			run.start();

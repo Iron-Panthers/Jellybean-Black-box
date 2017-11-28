@@ -2,9 +2,9 @@ package org.usfirst.frc.team5026.robot;
 
 import org.usfirst.frc.team5026.robot.commands.ColorSensorTest;
 import org.usfirst.frc.team5026.robot.commands.ColorSort;
-import org.usfirst.frc.team5026.robot.commands.ReleaseWaitCommand;
 import org.usfirst.frc.team5026.robot.commands.ResetRelease;
-import org.usfirst.frc.team5026.robot.commands.SortLeftWaitCommand;
+import org.usfirst.frc.team5026.robot.commands.SortLeftCommGroup;
+import org.usfirst.frc.team5026.robot.commands.SortRightCommGroup;
 import org.usfirst.frc.team5026.robot.commands.SortRightWaitCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -34,10 +34,10 @@ public class OI {
 		stickBtnSix = new JoystickButton(stick, 6);
 	}
 	public void mapButtons() {
-		stickBtnOne.whenPressed(new ColorSort());
+//		stickBtnOne.whenPressed(new ColorSort());
 		//For testing
-		stickBtnTwo.whenPressed(new SortLeftWaitCommand(Constants.SORT_TIME));
-		stickBtnThree.whenPressed(new ReleaseWaitCommand(Constants.RELEASE_TIME));
+		stickBtnTwo.whenPressed(new SortLeftCommGroup());
+		stickBtnThree.whenPressed(new SortRightCommGroup());
 		stickBtnFour.whenPressed(new ResetRelease());
 		stickBtnFive.whenPressed(new SortRightWaitCommand(Constants.SORT_TIME));
 		stickBtnSix.whileHeld(new ColorSensorTest());

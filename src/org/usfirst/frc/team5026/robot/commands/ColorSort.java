@@ -1,7 +1,5 @@
 package org.usfirst.frc.team5026.robot.commands;
 
-import org.usfirst.frc.team5026.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -9,8 +7,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class ColorSort extends CommandGroup {
 
-    public ColorSort() {
-    	if (Robot.sort.getColor()==0 || Robot.sort.getColor()==16) {
+    public ColorSort(int color) {
+    	//Only checks when constructed for color, so this will not work
+    	if (color==0 || color==16) {
     		addSequential(new SortLeftCommGroup());
     		end();
     	}

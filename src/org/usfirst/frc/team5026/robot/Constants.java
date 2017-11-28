@@ -12,6 +12,8 @@ public class Constants {
 	public static final double SORT_RIGHT_POS = 0.525;
 	public static final double SORT_LEFT_POS = 0.45;
 	
+	//For teleop
+	public static final int SORT_FREQUENCY = 500;
 	
 	//Release
 	public static final double RELEASE_TIME = 0.3; //In seconds
@@ -24,7 +26,7 @@ public class Constants {
 	
 	//Color Sensor Things
 	public static final int RGB_MAX_WHITE = 65536;
-	public static final int RGB_MIN_WHITE = 15000;
+	public static final int RGB_MIN_WHITE = 13000;
 	public static final int RGB_MAX_BLACK = 1000;
 	public static final int RGB_MIN_BLACK = 0;
 	

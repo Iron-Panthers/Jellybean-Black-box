@@ -3,6 +3,7 @@ package org.usfirst.frc.team5026.robot.subsystems;
 import org.usfirst.frc.team5026.robot.ColorSensorI2C;
 import org.usfirst.frc.team5026.robot.Constants;
 import org.usfirst.frc.team5026.robot.Robot;
+import org.usfirst.frc.team5026.robot.commands.ChooseCommGroup;
 
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -53,7 +54,7 @@ public class Sort extends Subsystem{
 		//65000/256
 //		System.out.print("Hex value: "+test+"Decimal value: ");
 		System.out.println(testDecimal);
-		if ((testDecimal>=Constants.RGB_MAX_WHITE) && testDecimal<=Constants.RGB_MIN_WHITE) {
+		if ((testDecimal<=Constants.RGB_MAX_WHITE) && testDecimal>=Constants.RGB_MIN_WHITE) {
 			return true;
 		}
 		return false;
@@ -90,30 +91,15 @@ public class Sort extends Subsystem{
 	public void getColorTest() {
 		int[] rgb = colorSensor.getRGBC();
 		//Black, white
-		System.out.println(isRGBInRange(isInWhiteRange(rgb[0]),isInWhiteRange(rgb[1]),isInWhiteRange(rgb[2])));
-		System.out.println(isRGBInRange(isInBlackRange(rgb[0]),isInBlackRange(rgb[1]),isInBlackRange(rgb[2])));
+		System.out.println("Is White: "+ isRGBInRange(isInWhiteRange(rgb[0]),isInWhiteRange(rgb[1]),isInWhiteRange(rgb[2])));
+		System.out.println("Black: "+ isRGBInRange(isInBlackRange(rgb[0]),isInBlackRange(rgb[1]),isInBlackRange(rgb[2])));
 		System.out.println("Red"+isInWhiteRange(rgb[0]));
 		System.out.println("Green"+isInWhiteRange(rgb[1]));
 		System.out.println("Blue"+isInWhiteRange(rgb[2]));
 	}
-	public int[] getColorRGB() {
-		int[] rgb = colorSensor.getRGBC();
-		System.out.println(rgb[0]);
-		int[] rgbDecimal = new int[3];
-		for (int i = 0; i<rgb.length-1; i++) {
-			String hex = ""+rgb[i]+"";
-			//Converts to decimal to add to the int array
-			rgbDecimal[i] = Integer.parseInt(hex,16);
-		}
-		return rgbDecimal;
-//		int[] test = new int[3];
-//		test[0] = 255;
-//		test[1] = 255;
-//		test[2] = 255;
-//		return test;
-	}
 	@Override
 	protected void initDefaultCommand() {
+		setDefaultCommand(new ChooseCommGroup());
 		// TODO Auto-generated method stub
 		
 	}
