@@ -27,7 +27,7 @@ public class Constants {
 	//Color Sensor Things
 	public static final int RGB_MAX_WHITE = 65536;
 	public static final int RGB_MIN_WHITE = 13000;
-	public static final int RGB_MAX_BLACK = 1000;
+	public static final int RGB_MAX_BLACK = 1300;
 	public static final int RGB_MIN_BLACK = 0;
 	
 	

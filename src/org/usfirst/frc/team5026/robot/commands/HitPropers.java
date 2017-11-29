@@ -22,7 +22,8 @@ public class HitPropers extends TimedCommand {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	System.out.println("YOu got there");
-    	if (Robot.sort.getColor()==0 || Robot.sort.getColor()==16) {
+    	//Only darks
+    	if (Robot.sort.getColor()==16) {
     		Robot.sort.sortLeft();
     	}
     	else {
