@@ -1,22 +1,20 @@
 package org.usfirst.frc.team5026.robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.command.WaitCommand;
+import org.usfirst.frc.team5026.robot.Constants;
 
 /**
  *
  */
 public class ColorSort extends CommandGroup {
 
-    public ColorSort(int color) {
+    public ColorSort() {
     	//Only checks when constructed for color, so this will not work
-    	if (color==0 || color==16) {
-    		addSequential(new SortLeftCommGroup());
-    		end();
-    	}
-    	else { //Color would be 8
-    		addSequential(new SortRightCommGroup());
-    		end();
-    	}
+    	addSequential(new HitPropers(Constants.SORT_TIME));
+    	addSequential(new ReleaseWaitCommand(Constants.RELEASE_TIME));
+    	addSequential(new ResetSortCommand());
+    	addSequential(new ResetRelease());
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

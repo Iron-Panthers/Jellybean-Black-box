@@ -1,8 +1,6 @@
 
 package org.usfirst.frc.team5026.robot;
 
-import org.usfirst.frc.team5026.robot.commands.SortLeftCommGroup;
-import org.usfirst.frc.team5026.robot.commands.SortRightCommGroup;
 import org.usfirst.frc.team5026.robot.subsystems.Sort;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -47,6 +45,7 @@ public class Robot extends IterativeRobot {
 //		defaultRGB = colorSensor.getColorRGB();
 		
 //		chooser.addDefault("Default Auto", new ExampleCommand());
+//		chooser.addDefault("Sort", new ColorSort());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 		oi.mapButtons();
@@ -134,7 +133,7 @@ public class Robot extends IterativeRobot {
 //			System.out.println(time);
 //			int color = sort.getColor();
 //			if (color==0 || color==16) {
-//				new SortLeftCommGroup();
+//				oi.stickBtnTwo.press;
 //			}
 //			else {
 //				new SortRightCommGroup();

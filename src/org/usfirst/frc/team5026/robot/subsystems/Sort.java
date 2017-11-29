@@ -3,7 +3,6 @@ package org.usfirst.frc.team5026.robot.subsystems;
 import org.usfirst.frc.team5026.robot.ColorSensorI2C;
 import org.usfirst.frc.team5026.robot.Constants;
 import org.usfirst.frc.team5026.robot.Robot;
-import org.usfirst.frc.team5026.robot.commands.ChooseCommGroup;
 
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -99,7 +98,6 @@ public class Sort extends Subsystem{
 	}
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new ChooseCommGroup());
 		// TODO Auto-generated method stub
 		
 	}

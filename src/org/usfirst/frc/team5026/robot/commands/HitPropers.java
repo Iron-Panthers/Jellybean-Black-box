@@ -7,11 +7,10 @@ import edu.wpi.first.wpilibj.command.TimedCommand;
 /**
  *
  */
-public class SortRightWaitCommand extends TimedCommand {
+public class HitPropers extends TimedCommand {
 
-    public SortRightWaitCommand(double timeout) {
+    public HitPropers(double timeout) {
         super(timeout);
-        requires(Robot.sort);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -22,12 +21,18 @@ public class SortRightWaitCommand extends TimedCommand {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.sort.sortRight();
+    	System.out.println("YOu got there");
+    	if (Robot.sort.getColor()==0 || Robot.sort.getColor()==16) {
+    		Robot.sort.sortLeft();
+    	}
+    	else {
+    		Robot.sort.sortRight();
+    	}
+    	end();
     }
 
     // Called once after timeout
     protected void end() {
-		System.out.println("Sorting good ones");
     }
 
     // Called when another command which requires one or more of the same
