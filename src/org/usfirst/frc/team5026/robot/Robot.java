@@ -1,15 +1,14 @@
 
 package org.usfirst.frc.team5026.robot;
 
+import org.usfirst.frc.team5026.robot.subsystems.Sort;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
-import org.usfirst.frc.team5026.robot.commands.ExampleCommand;
-import org.usfirst.frc.team5026.robot.subsystems.ExampleSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -20,8 +19,11 @@ import org.usfirst.frc.team5026.robot.subsystems.ExampleSubsystem;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
+	public static Hardware hardware;
+	public static Sort sort;	
+	public static int[] defaultRGB;
+	public static int time;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -32,10 +34,21 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		time = 999;
 		oi = new OI();
-		chooser.addDefault("Default Auto", new ExampleCommand());
+		hardware = new Hardware();
+		sort = new Sort();
+//		colorSensor = new ColorSensor();
+		defaultRGB = hardware.colorSensor.getRGBC();
+		System.out.println(defaultRGB[0]);
+		//Add when color sensor is added
+//		defaultRGB = colorSensor.getColorRGB();
+		
+//		chooser.addDefault("Default Auto", new ExampleCommand());
+//		chooser.addDefault("Sort", new ColorSort());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
+		oi.mapButtons();
 	}
 
 	/**
@@ -94,6 +107,18 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
+//		time++;
+//		if (time%Constants.SORT_FREQUENCY==0) {
+//			System.out.println(time);
+////			int color = sort.getColor();
+////			if (color==0 || color==16) {
+////				new SortLeftCommGroup();
+////			}
+////			else {
+//			//Run a command for init default that runs color sort with getColor as a param
+//				new SortRightCommGroup();
+////			}
+//		}
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
 	}
@@ -103,6 +128,22 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
+//		time++;
+//		if (time%Constants.SORT_FREQUENCY==0) {
+//			System.out.println(time);
+//			int color = sort.getColor();
+//			if (color==0 || color==16) {
+//				oi.stickBtnTwo.press;
+//			}
+//			else {
+//				new SortRightCommGroup();
+//			}
+//		}
+//		
+////		if(colorSensor.getColorRGB()!=defaultRGB) {
+////			RunCommands run = new RunCommands();
+////			run.start();
+////		}
 		Scheduler.getInstance().run();
 	}
 
