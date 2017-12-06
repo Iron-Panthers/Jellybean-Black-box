@@ -1,6 +1,7 @@
 package org.usfirst.frc.team5026.robot;
 
 import org.usfirst.frc.team5026.robot.commands.ColorSort;
+import org.usfirst.frc.team5026.robot.commands.ReleaseWaitCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -14,12 +15,15 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 	Joystick stick;
 	Button stickBtnOne;
+	Button stickBtnTwo;
 	public OI() {
 		stick = new Joystick(1);
 		stickBtnOne = new JoystickButton(stick, 1);
+		stickBtnTwo = new JoystickButton(stick, 2);
 	}
 	public void mapButtons() {
 		stickBtnOne.whenPressed(new ColorSort());
+		stickBtnTwo.whenPressed(new ReleaseWaitCommand(Constants.RELEASE_TIME));
 		//For testing
 	}
 	//// CREATING BUTTONS
